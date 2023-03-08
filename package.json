@@ -1,0 +1,37 @@
+{
+  "repository": "https://github.com/Zetchi/MeosisCall",
+  "name": "meosiscall",
+  "productName": "meosiscall",
+  "version": "1.0.0",
+  "description": "Click to Call de Meosis",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "nodemon --watch * --exec electron .",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "publish": "electron-forge publish",
+    "lint": "echo \"No linting configured\""
+  },
+  "keywords": [],
+  "author": {
+    "name": "Szal Julien",
+    "email": "julienszal@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-log": "^5.0.0-beta.16",
+    "electron-squirrel-startup": "^1.0.0",
+    "update-electron-app": "^2.0.1"
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "^6.0.5",
+    "@electron-forge/maker-deb": "^6.0.5",
+    "@electron-forge/maker-rpm": "^6.0.5",
+    "@electron-forge/maker-squirrel": "^6.0.5",
+    "@electron-forge/maker-zip": "^6.0.5",
+    "@electron-forge/publisher-github": "^6.0.5",
+    "electron": "23.1.1",
+    "electron-log": "^5.0.0-beta.16",
+    "nodemon": "^2.0.20"
+  }
+}
