@@ -6,7 +6,7 @@ const path = require("path");
 require('update-electron-app')()
 
 // run this as early in the main process as possible
-if(require('electron-squirrel-startup')) return;
+if (require('electron-squirrel-startup')) app.quit();
 
 const date = new Date();
 const hours = date.getHours();
