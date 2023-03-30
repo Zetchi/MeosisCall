@@ -6,7 +6,7 @@ const path = require("path");
 require('update-electron-app')()
 
 // run this as early in the main process as possible
-if (require('electron-squirrel-startup')) app.quit();
+if(require('electron-squirrel-startup')) return;
 
 const date = new Date();
 const hours = date.getHours();
@@ -100,7 +100,7 @@ app.whenReady().then(() => {
     }
   });
 
-  runProgram("Desktop", "dialer.exe");
+  runProgram("dialer.exe");
 });
 
 // Quit when all windows are closed, except on macOS. There, it's common
@@ -132,17 +132,20 @@ function getReallyNum() {
 }
 
 //Lance un programme avec comme parametre le folder qui est existant dans le dossier User du PC et avec le nom du programme
-function runProgram(folder = null, name = null) {
+function runProgram( name = null) {
   {
-    if (folder !== null && name !== null) {
-      const desktopPath = path.join(process.env.USERPROFILE, folder, name);
+    if (name !== null) {
+      // const desktopPath = path.join(process.env.USERPROFILE, folder, name);
+      const desktopPath = path.join(__dirname, name);
       const reallyNum = getReallyNum();
-      const match = String(reallyNum).match(/\d+/);
-      if (match) {
-        num = parseInt(match[0], 10);
-      } else {
-        num = null;
-      }
+      const num = String(reallyNum).match(/\d+/);
+      console.log(num)
+      // if (match) {
+      //   num = parseInt(match[0].substring(0, 2), 10);
+      //   console.log(num)
+      // } else {
+      //   num = null;
+      // }
       if (num) {
         execFile(desktopPath, [num], (err, data) => {
           if (err) {

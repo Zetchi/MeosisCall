@@ -14,6 +14,8 @@ const milliseconds = date.getMilliseconds();
 console.log(`renderer.js | ${hours}:${minutes}:${seconds}:${milliseconds}`);
 
 window.bridge.sendReallyNum((event, settings) => {
+    console.log(event);
+    console.log(settings)
     const element = document.querySelector('#text-num')
     const parentElement = document.querySelector('.content-center')
     if (settings == null) {

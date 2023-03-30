@@ -27,7 +27,7 @@ module.exports = {
         // The ICO file to use as the icon for the generated Setup.exe
         setupIcon: './src/img/m-Vert.ico',
         //Name of setup.exe
-        setupExe: 'meosiscall-setup.exe'
+        setupExe: 'meosis-click-to-call-setup.exe'
       },
     },
     {
