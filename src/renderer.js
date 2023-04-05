@@ -14,8 +14,8 @@ const milliseconds = date.getMilliseconds();
 console.log(`renderer.js | ${hours}:${minutes}:${seconds}:${milliseconds}`);
 
 window.bridge.sendReallyNum((event, settings) => {
-    console.log(event);
-    console.log(settings)
+    // console.log(event);
+    // console.log(settings)
     const element = document.querySelector('#text-num')
     const parentElement = document.querySelector('.content-center')
     if (settings == null) {
@@ -24,5 +24,10 @@ window.bridge.sendReallyNum((event, settings) => {
         parentElement.style.display = 'flex'
         element.innerText = String(settings).match(/\d+/)
     }
-    console.log(String(settings).match(/\d+/))
+    // console.log(String(settings).match(/\d+/))
+});
+
+window.bridge.sendAppVersion((event, appVersion) => {
+    const appVersionElement = document.querySelector('.app-version')
+    appVersionElement.innerText = appVersion
 });

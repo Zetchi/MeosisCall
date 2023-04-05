@@ -17,6 +17,9 @@ contextBridge.exposeInMainWorld(
         // From main to render
         sendReallyNum: (datas) => {
             ipcRenderer.on('sendReallyNum', datas);
+        },
+        sendAppVersion: (datas) => {
+            ipcRenderer.on('sendAppVersion', datas);
         }
     }
 );

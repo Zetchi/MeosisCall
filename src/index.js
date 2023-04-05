@@ -21,7 +21,7 @@ app.setAsDefaultProtocolClient("meosis-call-x");
 // Vérifie si une instance de l'application est déjà en cours d'exécution
 const gotTheLock = app.requestSingleInstanceLock();
 if (!gotTheLock) {
-  app.quit();
+    app.quit()
 }
 
 // Handle creating/removing shortcuts on Windows when installing/uninstalling.
@@ -43,8 +43,11 @@ const createWindow = () => {
   });
 
   // and load the index.html of the app.
-  mainWindow.loadFile(path.join(__dirname, "index.html")).then(() => {
+  mainWindow.loadFile(path.join(__dirname, "index.html"))
+
+  mainWindow.webContents.on('did-finish-load', () => {
     mainWindow.webContents.send("sendReallyNum", getReallyNum());
+    mainWindow.webContents.send("sendAppVersion", getAppVersion());
   });
 
   // Open the DevTools.
@@ -56,6 +59,7 @@ const createWindow = () => {
       mainWindow.hide();
     }
   });
+
 };
 
 // This method will be called when Electron has finished
@@ -64,7 +68,7 @@ const createWindow = () => {
 app.whenReady().then(() => {
   // Créer l'icône de la zone de notification
   tray = new Tray(path.join(__dirname, "img/m-Vert.png"));
-  tray.setToolTip("MeosisCall");
+  tray.setToolTip("Meosis-Click-to-Call");
 
   // Créer le menu contextuel de l'icône de la zone de notification
   const contextMenu = Menu.buildFromTemplate([
@@ -131,6 +135,12 @@ function getReallyNum() {
   return result;
 }
 
+function getAppVersion() {
+  const appVersion = app.getVersion();
+
+  return appVersion
+}
+
 //Lance un programme avec comme parametre le folder qui est existant dans le dossier User du PC et avec le nom du programme
 function runProgram( name = null) {
   {
@@ -139,7 +149,7 @@ function runProgram( name = null) {
       const desktopPath = path.join(__dirname, name);
       const reallyNum = getReallyNum();
       const num = String(reallyNum).match(/\d+/);
-      console.log(num)
+      // console.log(num)
       // if (match) {
       //   num = parseInt(match[0].substring(0, 2), 10);
       //   console.log(num)
