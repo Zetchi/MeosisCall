@@ -122,7 +122,13 @@ app.on("window-all-closed", () => {
 //Récupére le numéro de téléphone passé au lancement de l'application depuis un navigateur exemple "meosiscall://num=145"
 function getReallyNum() {
   const num = process.argv.slice(1);
-  const indexNum = num[0].indexOf("num=");
+  var indexNum = null
+  num.forEach(function (item) {
+    if (item.indexOf("num=")) {
+      indexNum = item.indexOf("num=");
+    }
+  })
+  console.log('test',num)
   // const num = "meosiscall://num=145/"
 
   var result = null;

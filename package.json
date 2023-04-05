@@ -2,7 +2,7 @@
   "repository": "https://github.com/Zetchi/MeosisCall",
   "name": "Meosis-Click-to-Call",
   "productName": "Meosis-Click-to-Call",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Click to Call de Meosis",
   "main": "src/index.js",
   "scripts": {
